@@ -813,15 +813,28 @@ body.no-scroll .scroll-down-hint {
 }
 
 .hero-mobile-scroll-hint {
-  display: none; /* Hidden by default on desktop */
-  font-family: 'Poppins', Arial, sans-serif;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 1rem;
-  margin-top: 20px; /* Space from above text */
-  opacity: 0;
-  animation: fadeIn 1s forwards;
-  animation-delay: 3s; /* Adjust delay to appear after 'Hello' is typed */
+  margin: 12px 0 0 0;
   text-align: center;
+  font-size: 1rem;
+  color: #d4d4d8cc;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+  opacity: 0;
+  margin-bottom: 20px; /* Added space between text and arrow */
+}
+
+@media (max-width: 768px) {
+  .hero-mobile-scroll-hint {
+    font-size: 0.9rem;
+    margin-top: 8px;
+    margin-bottom: 15px; /* Adjusted for mobile */
+  }
+  
+  .scroll-down-hint {
+    bottom: 30px; /* Adjusted for mobile */
+  }
 }
 
 @media (max-width: 992px) {
@@ -2517,5 +2530,51 @@ html {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+.scroll-down-hint {
+  display: none; /* This will hide the arrow on all devices */
+}
+
+#hero .scroll-down-hint {
+  display: none; /* This will only hide the arrow in the hero section */
+}
+
+#home .scroll-down-hint {
+  display: block; /* This will show the arrow in the home section */
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 2s;
+  z-index: 5;
+}
+
+#home .hint-text {
+  font-size: 1rem;
+  color: #d4d4d8cc;
+  margin-bottom: 8px;
+}
+
+#home .hint-arrow {
+  font-size: 1.5rem;
+  color: #d4d4d8cc;
+  display: block;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
   }
 }
